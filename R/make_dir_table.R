@@ -30,11 +30,20 @@
 #'                               "aoi"),
 #'                return_level = "aoi"
 #' )
+#'
+#' ## For an out-directory with non-targets folders within 'grain':
+#' make_dir_table(cleaned_dir, return_level = "stores") |>
+#'   dplyr::group_by(extent, grain) |>
+#'   dplyr::filter("setup" %in% stores) |>   ## filter to newer folders that use targets
+#'   dplyr::select(-stores) |>
+#'   dplyr::distinct()
 #' }
 #'
 make_dir_table <- function(out_dir,
-                           dir_levels = c("root", "branch", "out", "proj", "extent", "grain", "stores"),
+                           dir_levels = c("root", "branch", "out", "project", "extent", "grain", "stores"),
                            return_level = "grain"){
+
+  if(grepl("\\.\\.\\/", out_dir)) stop("Relative out_dir path detected; use absolute file paths with eg fs::path_abs(out_dir)")
 
   dir_levels <- factor(dir_levels, levels = dir_levels, ordered = TRUE)
 
@@ -45,7 +54,7 @@ make_dir_table <- function(out_dir,
 
   res <- folders |>
     stringr::str_split_fixed(pattern = "/", n = max(str_count(folders, "/")) + 1) |>
-    tibble::as_tibble() |>
+    tibble::as_tibble(.name_repair = 'minimal') |>
     setNames(as.character(use_levels))
 
   res <- res[!is.na(names(res))]

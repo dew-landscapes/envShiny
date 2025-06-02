@@ -6,7 +6,7 @@
 \usage{
 make_dir_table(
   out_dir,
-  dir_levels = c("root", "branch", "out", "proj", "extent", "grain", "stores"),
+  dir_levels = c("root", "branch", "out", "project", "extent", "grain", "stores"),
   return_level = "grain"
 )
 }
@@ -42,6 +42,13 @@ make_dir_table(regcont_dir,
                               "aoi"),
                return_level = "aoi"
 )
+
+## For an out-directory with non-targets folders within 'grain':
+make_dir_table(cleaned_dir, return_level = "stores") |>
+  dplyr::group_by(extent, grain) |>
+  dplyr::filter("setup" \%in\% stores) |>   ## filter to newer folders that use targets
+  dplyr::select(-stores) |>
+  dplyr::distinct()
 }
 
 }
