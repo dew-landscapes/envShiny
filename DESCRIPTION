@@ -24,6 +24,8 @@ Imports:
     targets,
     sf,
     tidyr,
+    tibble,
+    stringr,
     leaflet,
     shiny,
     bslib,
