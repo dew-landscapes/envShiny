@@ -4,6 +4,9 @@
 #'
 #' @returns A data frame with names of targets. Excludes targets with `_branches_` in the name.
 #'
+#' @seealso [`envShiny::tar_meta_opts`] in the options argument of `DT::datatable()` is useful for easy consistent output formatting.
+#'
+#'
 #' @export
 
 get_tar_meta <- function(store){

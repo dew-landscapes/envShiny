@@ -15,3 +15,6 @@ A data frame with names of targets. Excludes targets with `_branches_` in the na
 \description{
 Build a table of targets metadata and progress
 }
+\seealso{
+[`envShiny::tar_meta_opts`] in the options argument of `DT::datatable()` is useful for easy consistent output formatting.
+}

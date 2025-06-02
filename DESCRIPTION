@@ -33,3 +33,5 @@ Imports:
     purrr
 URL: https://github.com/dew-landscapes/envShiny
 BugReports: https://github.com/dew-landscapes/envShiny/issues
+Depends: 
+    R (>= 3.5)
