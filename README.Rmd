@@ -1,0 +1,24 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# envShiny
+
+envShiny holds functions that are used across multiple shiny apps in the env world.
+
+## Installation
+
+envShiny is not on CRAN. You can install it with `devtools::install_github("dew-landscapes/envShiny")`.
+
+
