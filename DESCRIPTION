@@ -29,3 +29,5 @@ Imports:
     bslib,
     bsicons,
     purrr
+URL: https://github.com/dew-landscapes/envShiny
+BugReports: https://github.com/dew-landscapes/envShiny/issues
