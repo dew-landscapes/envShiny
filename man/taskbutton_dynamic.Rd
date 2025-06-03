@@ -42,3 +42,49 @@ This button type combines the 'processing' function of `bslib::input_task_button
 \details{
 Use within a `renderUI` function in the server function, and not in the UI, as it will need reactives to track 'load' status.
 }
+\examples{
+\dontrun{
+
+  ## in UI:
+uiOutput("loadbutton_ui")
+
+  ## In server:
+output$loadbutton_ui <- renderUI(
+  taskbutton_dynamic("load",
+  label_ready = "Load data",
+  loaded = loaded$loaded, #see below
+  changed = loaded$changed)
+)
+
+  ### To track top-level data loading (e.g at the start of an app), use:
+loaded <- reactiveValues(
+  loaded = FALSE,   #is loaded?
+  selection = NULL, #track extent & grain selections
+  changed = FALSE   #selection != loaded
+)
+
+observeEvent({
+  input$select_extent
+  input$select_grain
+}, {
+  loaded$changed = ifelse(loaded$loaded, TRUE, loaded$loaded)
+}, priority = 1)
+
+observeEvent(input$load_dataset, {
+  loaded$loaded = TRUE
+  loaded$selection = paste(input$select_extent, input$select_grain)
+  loaded$changed = FALSE
+})
+observeEvent({
+  input$select_extent
+  input$select_grain
+}, {
+  if(loaded$loaded){
+    loaded$changed = ifelse(paste(input$select_extent, input$select_grain) == loaded$selection,
+                            FALSE,
+                            TRUE)
+  }
+})
+}
+
+}
