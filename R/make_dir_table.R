@@ -53,7 +53,7 @@ make_dir_table <- function(out_dir,
     gsub(pattern = "/app/", replacement = "app/") #to handle sol server 'drive' naming
 
   res <- folders |>
-    stringr::str_split_fixed(pattern = "/", n = max(str_count(folders, "/")) + 1) |>
+    stringr::str_split_fixed(pattern = "/", n = max(stringr::str_count(folders, "/")) + 1) |>
     tibble::as_tibble(.name_repair = 'minimal') |>
     setNames(as.character(use_levels))
 
