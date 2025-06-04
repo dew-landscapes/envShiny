@@ -16,6 +16,15 @@
 #'
 #' @returns An `input_task_button`, or a disabled `actionButton` when action is complete.
 #'
+#' @details
+#' The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered selectInput load.
+#'
+#' Tracking 'changed' is tricky, because updating the ui button triggers an eventReactive in the same way as if it was clicked, so an
+#' eventReactive around the data load won't work (it will load data before the load button is clicked). Instead,
+#' use `bindCache(loaded$selection)` on the data (e.g. a tars() reactive), where `loaded$selection` stores the currently-loaded data name
+#' (see Examples).
+#'
+#'
 #' @examples
 #' \dontrun{
 #'
@@ -59,6 +68,12 @@
 #'                             TRUE)
 #'   }
 #' })
+#'
+#'   ### To only load new data when button is clicked, use
+#' data <- reactive({
+#' ...
+#' }) |> bindCache(loaded$selected)
+#'
 #' }
 #'
 #' @export
@@ -86,6 +101,7 @@ taskbutton_dynamic <- function(id,
                        icon = icon("circle-check"),
                        class = class,
                        disabled = TRUE)
+
   }
 
   if(isTRUE(changed)){
@@ -94,6 +110,10 @@ taskbutton_dynamic <- function(id,
                             label_busy = label_busy,
                             type = type,
                             class = class)
+    # ui <- actionButton(inputId = id,
+    #                    label = label_changed,
+    #                    icon = NULL,
+    #                    )
   }
 
   ui

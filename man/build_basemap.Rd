@@ -12,7 +12,7 @@ build_basemap(
 )
 }
 \arguments{
-\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah')}
+\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah'). Basemaps are automatically included at zIndex=1.}
 
 \item{panes_zIndex}{Numeric vector of panes levels. Must be equal length to `panes`.}
 

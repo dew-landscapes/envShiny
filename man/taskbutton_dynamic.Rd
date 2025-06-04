@@ -41,6 +41,13 @@ This button type combines the 'processing' function of `bslib::input_task_button
 }
 \details{
 Use within a `renderUI` function in the server function, and not in the UI, as it will need reactives to track 'load' status.
+
+The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered selectInput load.
+
+Tracking 'changed' is tricky, because updating the ui button triggers an eventReactive in the same way as if it was clicked, so an
+eventReactive around the data load won't work (it will load data before the load button is clicked). Instead,
+use `bindCache(loaded$selection)` on the data (e.g. a tars() reactive), where `loaded$selection` stores the currently-loaded data name
+(see Examples).
 }
 \examples{
 \dontrun{
@@ -85,6 +92,12 @@ observeEvent({
                             TRUE)
   }
 })
+
+  ### To only load new data when button is clicked, use
+data <- reactive({
+...
+}) |> bindCache(loaded$selected)
+
 }
 
 }

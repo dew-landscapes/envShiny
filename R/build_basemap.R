@@ -3,7 +3,7 @@
 #' Create a leaflet map upon which to add layers through `leaflet::add` functions or `leafletProxy`.
 #' Includes controls for panes zIndex (i.e. layer heights), basemaps, and sets controls positions.
 #'
-#' @param panes Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah')
+#' @param panes Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah'). Basemaps are automatically included at zIndex=1.
 #' @param panes_zIndex Numeric vector of panes levels. Must be equal length to `panes`.
 #' @param use_basemaps Names of leaflet basemaps. Defaults are OpenStreetMap & ESRI World Imagery (built in to leaflet), and ImageMapSA via its public URL (which reverts to ESRI imagery outside its extent).
 #' @param ... Passed to initial leaflet(), eg. for setting height.
