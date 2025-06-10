@@ -13,7 +13,8 @@ taskbutton_dynamic(
   label_done = "Loaded",
   label_changed = "Update",
   class = NULL,
-  type = "primary"
+  type = "primary",
+  ...
 )
 }
 \arguments{
@@ -21,17 +22,21 @@ taskbutton_dynamic(
 
 \item{label_ready}{Label to display before clicking i.e. ready state of input_task_button.}
 
-\item{loaded}{#Logical; how to track loaded status (usually a reactiveValues value).}
+\item{loaded}{Logical; how to track loaded status (usually a reactiveValues value).}
 
-\item{changed}{#Optional logical; how to track if the button should be clickable again, when `loaded==TRUE`.}
+\item{changed}{Optional logical; how to track if the button should be clickable again, when `loaded==TRUE`.}
 
-\item{label_busy}{Label to display when processing. Used directly in same argument of `input_task_button.`}
+\item{label_busy}{Label to display when processing. Used directly in same argument of `input_task_button.`.}
+
+\item{label_done}{Label to display when process is finished. Displayed on a disable `actionButton`.}
 
 \item{label_changed}{Label to display when `loaded==TRUE` but new action is available and button is clickable again.}
 
 \item{class}{Sent to `class` argument of all buttons (e.g. 'btn-sm')}
 
 \item{type}{Sent to `type` argument of input_task_buttons (default 'primary')}
+
+\item{...}{Sent to all buttons; Named arguments become attributes to include on the <button> element.}
 }
 \value{
 An `input_task_button`, or a disabled `actionButton` when action is complete.
