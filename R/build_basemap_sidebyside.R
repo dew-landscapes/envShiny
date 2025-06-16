@@ -47,9 +47,11 @@ build_basemap_sidebyside <- function(panes = NULL,
   if(basemap == "Esri imagery"){
     map <- map |>
       leaflet::addProviderTiles("Esri.WorldImagery",
+                                group = "base",
                                 layerId = "base_left",
                                 options = leaflet::pathOptions(pane = "left")) |>
       leaflet::addProviderTiles("Esri.WorldImagery",
+                                group = "base",
                                 layerId = "base_right",
                                 options = leaflet::pathOptions(pane = "right"))
 
@@ -58,18 +60,22 @@ build_basemap_sidebyside <- function(panes = NULL,
     map <- map |>
       leaflet::addWMSTiles("https://imagemap.geohub.sa.gov.au/mapproxy/wms",
                            layers = "SAGovMosaic",
+                           group = "base",
                            layerId = "base_left",
                            options = leaflet::pathOptions(pane = "left")) |>
       leaflet::addWMSTiles("https://imagemap.geohub.sa.gov.au/mapproxy/wms",
                            layers = "SAGovMosaic",
+                           group = "base",
                            layerId = "base_right",
                            options = leaflet::pathOptions(pane = "right"))
   } else {
 
     map <- map |>
       leaflet::addTiles(layerId = "base_left",
+                        group = "base",
                         options = leaflet::pathOptions(pane = "left")) |>
       leaflet::addTiles(layerId = "base_right",
+                        group = "base",
                         options = leaflet::pathOptions(pane = "right"))
 
   }
@@ -84,7 +90,8 @@ build_basemap_sidebyside <- function(panes = NULL,
   }
 
   map <- map |>
-    leaflet.extras2::addSidebyside(rightId = "base_right", leftId = "base_left")
+    leaflet.extras2::addSidebyside(layerId = "sidebyside",
+                                   rightId = "base_right", leftId = "base_left")
 
   return(map)
 }
