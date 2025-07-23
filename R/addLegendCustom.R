@@ -24,7 +24,8 @@ addLegendCustom <- function(map,
                             shapes = "square",
                             borders = colors,
                             opacity = 1,
-                            proxy = TRUE){
+                            proxy = TRUE,
+                            ...){
 
   if(!any(shapes %in% c("square", "circle"))) {
     shapes = "square"

@@ -12,7 +12,8 @@ addLegendCustom(
   shapes = "square",
   borders = colors,
   opacity = 1,
-  proxy = TRUE
+  proxy = TRUE,
+  ...
 )
 }
 \arguments{
