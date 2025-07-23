@@ -31,6 +31,8 @@ addLegendCustom(
 \item{opacity}{Numeric between 0-1, length 1. Opacity of legend shapes}
 
 \item{proxy}{Use `leafletProxy(map)`? Use only in a shiny server.}
+
+\item{...}{Other arguments to `leaflet::addLegend` (e.g. title)}
 }
 \value{
 Leaflet legend added to the `map` provided

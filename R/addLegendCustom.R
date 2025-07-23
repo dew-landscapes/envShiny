@@ -12,6 +12,7 @@
 #' @param borders Vector of colour names or hex codes. Shape outline colour(s)
 #' @param opacity Numeric between 0-1, length 1. Opacity of legend shapes
 #' @param proxy Use `leafletProxy(map)`? Use only in a shiny server.
+#' @param ... Other arguments to `leaflet::addLegend` (e.g. title)
 #'
 #' @return Leaflet legend added to the `map` provided
 #' @export
@@ -49,12 +50,12 @@ addLegendCustom <- function(map,
     if(proxy) {
 
       leaflet::leafletProxy(map) |>
-        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity)
+        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity, ...)
 
     } else {
 
       map |>
-        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity)
+        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity, ...)
     }
   )
 }
