@@ -15,8 +15,7 @@ update_sidebyside_basemap <- function(map,
 
   map <- if(basemap == "Esri imagery"){
     map |>
-      leaflet::addProviderTiles(map,
-                                "Esri.WorldImagery",
+      leaflet::addProviderTiles("Esri.WorldImagery",
                                 layerId = "base_left",
                                 options = leaflet::pathOptions(pane = "left")) |>
       leaflet::addProviderTiles("Esri.WorldImagery",
