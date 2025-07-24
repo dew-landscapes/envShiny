@@ -1,0 +1,16 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/addLegendCustom.html</loc></url>
+<url><loc>/reference/build_basemap.html</loc></url>
+<url><loc>/reference/build_basemap_sidebyside.html</loc></url>
+<url><loc>/reference/get_tar_meta.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/make_dir_table.html</loc></url>
+<url><loc>/reference/plot_aoi.html</loc></url>
+<url><loc>/reference/taskbutton_dynamic.html</loc></url>
+<url><loc>/reference/update_sidebyside_basemap.html</loc></url>
+<url><loc>/reference/upload_shp.html</loc></url>
+</urlset>
+
