@@ -5,6 +5,10 @@
 #' @param map An existing leaflet map object, usually piped from `leafletProxy()`
 #' @param basemap The basemap layer which the map should be updated to use
 #'
+#' @details If another layer (e.g. a tif) is being drawn on top of the basemaps, and is 'swipeable', use
+#' map |> hideGroup("tif") |> showGroup("tif") to ensure it stays on top of the basemaps.
+#'
+#'
 #' @return A leaflet map, as an HTML widget object.
 #' @export
 #'
