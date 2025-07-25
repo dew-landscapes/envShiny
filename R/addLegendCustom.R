@@ -11,7 +11,6 @@
 #' @param shapes Vector of shapes. Only supports "square" or "circle", as shape comes only from the border-radius style of squares.
 #' @param borders Vector of colour names or hex codes. Shape outline colour(s)
 #' @param opacity Numeric between 0-1, length 1. Opacity of legend shapes
-#' @param proxy Use `leafletProxy(map)`? Use only in a shiny server.
 #' @param ... Other arguments to `leaflet::addLegend` (e.g. title)
 #'
 #' @return Leaflet legend added to the `map` provided
@@ -24,7 +23,6 @@ addLegendCustom <- function(map,
                             shapes = "square",
                             borders = colors,
                             opacity = 1,
-                            proxy = TRUE,
                             ...){
 
   if(!any(shapes %in% c("square", "circle"))) {
@@ -48,16 +46,8 @@ addLegendCustom <- function(map,
 
 
   return(
-    if(proxy) {
-
-      leaflet::leafletProxy(map) |>
-        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity, ...)
-
-    } else {
-
-      map |>
-        leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity, ...)
-    }
-  )
+    map |>
+      leaflet::addLegend(colors = legend_colors, labels = legend_labels, opacity = opacity, ...)
+      )
 }
 

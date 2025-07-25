@@ -12,7 +12,6 @@ addLegendCustom(
   shapes = "square",
   borders = colors,
   opacity = 1,
-  proxy = TRUE,
   ...
 )
 }
@@ -30,8 +29,6 @@ addLegendCustom(
 \item{borders}{Vector of colour names or hex codes. Shape outline colour(s)}
 
 \item{opacity}{Numeric between 0-1, length 1. Opacity of legend shapes}
-
-\item{proxy}{Use `leafletProxy(map)`? Use only in a shiny server.}
 
 \item{...}{Other arguments to `leaflet::addLegend` (e.g. title)}
 }
