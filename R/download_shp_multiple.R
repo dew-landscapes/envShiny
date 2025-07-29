@@ -19,8 +19,6 @@ download_shp_multiple <- function(data,
                                   layer_names = names(data),
                                   zip_name) {
 
-  if(is.null(layer_names)) stop("No layer_names supplied. Supply manually, or ensure data is a named list.")
-
   downloadHandler(
     filename = function() {
       paste0(zip_name, ".zip")
