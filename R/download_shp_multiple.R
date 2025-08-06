@@ -40,7 +40,8 @@ download_shp_multiple <- function(data,
       zip_file <- fs::path(tmp.path, paste0(zip_name, ".zip"))
 
       shp_files <- fs::dir_ls(tmp.path,
-                              regexp = paste0(layer_names, collapse = "|"))
+                              regexp = paste0(layer_names, collapse = "|"),
+                              recurse = TRUE)
 
       zip::zipr(zipfile = zip_name,
                 files = shp_files)

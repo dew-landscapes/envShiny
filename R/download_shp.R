@@ -25,7 +25,7 @@ download_shp <- function(data,
     },
     content = function(file) {
 
-      tmp.path <- tempdir()
+      tmp.path <- fs::path(tempdir(), as.integer(Sys.time()))
 
       sf::st_write(data,
                    dsn = tmp.path,
@@ -37,7 +37,8 @@ download_shp <- function(data,
       zip_file <- fs::path(tmp.path, paste0(zip_name, ".zip"))
 
       shp_files <- fs::dir_ls(tmp.path,
-                              regexp = layer_name)
+                              regexp = layer_name,
+                              recurse = TRUE)
 
       zip::zipr(zipfile = zip_name,
                 files = shp_files)
