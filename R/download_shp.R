@@ -40,10 +40,10 @@ download_shp <- function(data,
                               regexp = layer_name,
                               recurse = TRUE)
 
-      zip::zipr(zipfile = zip_name,
+      zip::zipr(zipfile = zip_file,
                 files = shp_files)
 
-      file.copy(zip_name, file)
+      file.copy(zip_file, file)
 
     }
   )
