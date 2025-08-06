@@ -48,7 +48,6 @@ download_shp_multiple <- function(data,
 
       file.copy(zip_name, file)
 
-      file.remove(c(shp_files, zip_name))
     }
   )
 }
