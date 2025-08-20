@@ -2,7 +2,7 @@
 
 #' Add a tif to a leaflet function (tweaked leafem::addGeotiff)
 #'
-#' This version uses file.copy instead of sf::gdal_utils to create the temp .tif that is drawn, to avoid huge file sizes (see \href{envSDMs #7}{https://github.com/dew-landscapes/envSDMs/issues/7})
+#' This version uses file.copy instead of sf::gdal_utils to create the temp .tif that is drawn, to avoid huge file sizes (see \href{https://github.com/dew-landscapes/envSDMs/issues/7}{envSDMs #7})
 #' Designed to work with rasters in 4326 and therefore this version uses project = FALSE as default; leafem uses TRUE and reprojects on the fly.
 #'
 #'  @param map the map to add the raster data to.
