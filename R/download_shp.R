@@ -16,7 +16,7 @@
 
 download_shp <- function(data,
                          layer_names,
-                         zip_name,
+                         zip_name = if(!multiple) layer_names,
                          multiple = FALSE) {
 
   downloadHandler(

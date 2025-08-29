@@ -4,7 +4,12 @@
 \alias{download_shp}
 \title{Download a shapefile from a shiny app}
 \usage{
-download_shp(data, layer_names, zip_name, multiple = FALSE)
+download_shp(
+  data,
+  layer_names,
+  zip_name = if (!multiple) layer_names,
+  multiple = FALSE
+)
 }
 \arguments{
 \item{data}{Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.}
