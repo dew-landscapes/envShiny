@@ -4,13 +4,12 @@
 
 #' From https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny
 #'
-#' @param data Data to be downloaded, usually a reactive
-#' @param layer_name Name of the shapefile, ie will output layer_name.shp, layer_name.dbf, etc.
+#' @param data Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.
+#' @param layer_names Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If multiple = TRUE, should be same length as data list.
 #' @param zip_name Name of the .zip folder downloaded.
+#' @param multiple Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.
 #'
-#' @return A file download from the shiny server.
-#'
-#' @seealso [download_shp_multiple()]
+#' @return A .zip file download from the shiny server, containing one or more shapefiles.
 #'
 #' @export
 #'

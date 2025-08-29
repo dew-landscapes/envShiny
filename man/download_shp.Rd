@@ -4,22 +4,21 @@
 \alias{download_shp}
 \title{Download a shapefile from a shiny app}
 \usage{
-download_shp(data, layer_name, zip_name = layer_name)
+download_shp(data, layer_names, zip_name, multiple = FALSE)
 }
 \arguments{
-\item{data}{Data to be downloaded, usually a reactive}
+\item{data}{Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.}
 
-\item{layer_name}{Name of the shapefile, ie will output layer_name.shp, layer_name.dbf, etc.}
+\item{layer_names}{Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If multiple = TRUE, should be same length as data list.}
 
 \item{zip_name}{Name of the .zip folder downloaded.}
+
+\item{multiple}{Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.}
 }
 \value{
-A file download from the shiny server.
+A .zip file download from the shiny server, containing one or more shapefiles.
 }
 \description{
 Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of shiny::downloadHandler
 From https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny
-}
-\seealso{
-[download_shp_multiple()]
 }
