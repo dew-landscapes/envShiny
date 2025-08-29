@@ -16,8 +16,9 @@
 #'
 
 download_shp <- function(data,
-                         layer_name,
-                         zip_name = layer_name) {
+                         layer_names,
+                         zip_name,
+                         multiple = FALSE) {
 
   downloadHandler(
     filename = function() {
@@ -27,17 +28,32 @@ download_shp <- function(data,
 
       tmp.path <- fs::path(tempdir(), as.integer(Sys.time()))
 
-      sf::st_write(data,
-                   dsn = tmp.path,
-                   layer = layer_name,
-                   driver = "ESRI Shapefile",
-                   append = FALSE,
-                   quiet = TRUE)
+      if(multiple == TRUE){
+        if(!is.list(data)) stop("data must be a list.")
+        purrr::walk2(data, layer_names,
+                     \(x, y)
+                     sf::st_write(x,
+                                  dsn = tmp.path,
+                                  layer = y,
+                                  driver = "ESRI Shapefile",
+                                  append = FALSE,
+                                  quiet = TRUE)
+        )
+
+      } else {
+
+        sf::st_write(data,
+                     dsn = tmp.path,
+                     layer = layer_names,
+                     driver = "ESRI Shapefile",
+                     append = FALSE,
+                     quiet = TRUE)
+      }
 
       zip_file <- fs::path(tmp.path, paste0(zip_name, ".zip"))
 
       shp_files <- fs::dir_ls(tmp.path,
-                              regexp = layer_name,
+                              regexp = paste0(layer_names, collapse = "|"),
                               recurse = TRUE)
 
       zip::zipr(zipfile = zip_file,
