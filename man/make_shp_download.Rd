@@ -8,7 +8,8 @@ make_shp_download(
   data,
   layer_names,
   zip_name = if (!multiple) layer_names,
-  multiple = FALSE
+  multiple = FALSE,
+  metadata = NULL
 )
 }
 \arguments{
@@ -21,6 +22,8 @@ should be same length as data list - one name for each shapefile.}
 shiny::download_handler.}
 
 \item{multiple}{Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.}
+
+\item{metadata}{Optionally, an object of class `WbWorkbook` from \code{openxlsx2} to include as metadata (.xlsx file) in the downloaded zip.}
 }
 \value{
 A temp path to the .zip file ready to be downloaded.

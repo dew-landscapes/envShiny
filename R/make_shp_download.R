@@ -12,6 +12,7 @@
 #' @param zip_name Name of the .zip folder downloaded. MUST match the name provided to the filename argument of
 #'   shiny::download_handler.
 #' @param multiple Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.
+#' @param metadata Optionally, an object of class `WbWorkbook` from \code{openxlsx2} to include as metadata (.xlsx file) in the downloaded zip.
 #'
 #' @return A temp path to the .zip file ready to be downloaded.
 #' @export
@@ -34,7 +35,8 @@
 make_shp_download <- function(data,
                               layer_names,
                               zip_name = if(!multiple) layer_names,
-                              multiple = FALSE) {
+                              multiple = FALSE,
+                              metadata = NULL) {
 
   tmp.path <- fs::path(tempdir(), as.integer(Sys.time()))
 
@@ -60,6 +62,13 @@ make_shp_download <- function(data,
                  quiet = TRUE)
   }
 
+  if(!is.null(metadata)) {
+    openxlsx2::wb_save(metadata,
+                       file = fs::path(tmp.path, "metadata.xlsx"))
+
+    metadata <- fs::path(tmp.path, "metadata.xlsx")
+  }
+
   zip_file <- fs::path(tmp.path, paste0(zip_name, ".zip"))
 
   shp_files <- fs::dir_ls(tmp.path,
@@ -67,7 +76,7 @@ make_shp_download <- function(data,
                           recurse = TRUE)
 
   zip::zipr(zipfile = zip_file,
-            files = shp_files)
+            files = c(shp_files, metadata))
 
   return(zip_file)
 
