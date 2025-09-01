@@ -2,7 +2,7 @@
 % Please edit documentation in R/download_shp.R
 \name{download_shp}
 \alias{download_shp}
-\title{Download a shapefile from a shiny app}
+\title{Download a shapefile from a shiny app - superceded.}
 \usage{
 download_shp(
   data,
@@ -24,6 +24,9 @@ download_shp(
 A .zip file download from the shiny server, containing one or more shapefiles.
 }
 \description{
+Due to bugs in reactive tracking, superceded by \code{envShiny::make_shp_download.R}
+}
+\details{
 Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of shiny::downloadHandler
-From https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny
+From <https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny>
 }
