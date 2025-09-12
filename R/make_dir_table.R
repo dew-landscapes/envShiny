@@ -49,7 +49,7 @@ make_dir_table <- function(out_dir,
 
   use_levels <- dir_levels[dir_levels <= return_level]
 
-  recurse_levels <- length(dir_levels) - length(stringr::str_split(out_dir, pattern = "\\/")[[1]])
+  recurse_levels <- length(dir_levels) - length(stringr::str_split(gsub(pattern = "/app/", replacement = "app/", x = out_dir), pattern = "\\/")[[1]])
 
   folders <- fs::dir_ls(out_dir, recurse = recurse_levels, type = "directory") |>
     gsub(pattern = "/app/", replacement = "app/") #to handle sol server 'drive' naming
