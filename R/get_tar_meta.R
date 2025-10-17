@@ -20,7 +20,7 @@ get_tar_meta <- function(store){
 
   res <- meta |>
     dplyr::left_join(prog) |>
-    dplyr::mutate(date = format(time, "%d-%b-%Y"), time = format(time, "%H:%m"),
+    dplyr::mutate(date = format(time, "%d-%b-%Y"), time = format(time, "%H:%M"),
                   seconds = round(seconds, 2),
                   size = paste0(fs::fs_bytes(bytes), "B")) |>
     dplyr::mutate(size = gsub("(?<=\\d)(?=[A-Za-z])", " ", size, perl = TRUE)) |>
