@@ -11,7 +11,7 @@ make_dir_table(
 )
 }
 \arguments{
-\item{out_dir}{The *absolute* file path to an output directory.}
+\item{out_dir}{The \emph{absolute} file path to an output directory.}
 
 \item{dir_levels}{Character vector (treated as an orderd factor) describing the directory levels returned.
 Default is usally fine, but some projects have an additional level below grain, e.g. 'aoi'}
@@ -19,14 +19,14 @@ Default is usally fine, but some projects have an additional level below grain, 
 \item{return_level}{Lowest directory level name to return. E.g. default 'grain' will return a df with names 'root' to 'grain'.}
 }
 \value{
-A data frame with one column per directory level, named from 'root' (e.g. H:) to `return_level`. Distinct rows per file path.
+A data frame with one column per directory level, named from 'root' (e.g. H:) to \code{return_level}. Distinct rows per file path.
 }
 \description{
 Collect file paths and turn them into a table, with a column per level. Needed for projects that use multiple extents/grains.
 }
 \details{
 Additional filtering (e.g. to filter folders within 'grain' that don't follow the latest targets setup)
-is best done by setting a higher `return_level` then performing the final `filter(return_level != "") |> distinct()` on the result.
+is best done by setting a higher \code{return_level} then performing the final \code{filter(return_level != "") |> distinct()} on the result.
 }
 \examples{
 \dontrun{

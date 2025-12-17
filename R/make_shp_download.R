@@ -1,18 +1,18 @@
 #' Make a zipfile of shapefile parts to be downloaded.
 #'
 #' Create the components of one or more shapefiles, and zip them to a single file that is ready for
-#' \code{shiny::downloadHandler}. Assign to an object (e.g. `zipfile`) within the function in the \code{content}
-#' argument of downloadHandler, then use \code{file.copy(zipfile, file)} (see example).
+#' [shiny::downloadHandler()]. Assign to an object (e.g. `zipfile`) within the function in the `content`
+#' argument of `downloadHandler`, then use `file.copy(zipfile, file)` (see example).
 #'
-#' @details Replaces \code{envShiny::download_shp} (see [envShiny #2](https://github.com/dew-landscapes/envShiny/issues/2)).
+#' @details Replaces [download_shp] (see [envShiny #2](https://github.com/dew-landscapes/envShiny/issues/2)).
 #'
 #' @param data Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.
 #' @param layer_names Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If multiple = TRUE,
 #'   should be same length as data list - one name for each shapefile.
 #' @param zip_name Name of the .zip folder downloaded. MUST match the name provided to the filename argument of
-#'   shiny::download_handler.
+#'   `shiny::download_handler`.
 #' @param multiple Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.
-#' @param metadata Optionally, an object of class `WbWorkbook` from \code{openxlsx2} to include as metadata (.xlsx file) in the downloaded zip.
+#' @param metadata Optionally, an object of class `WbWorkbook` from `openxlsx2` to include as metadata (.xlsx file) in the downloaded zip.
 #'
 #' @return A temp path to the .zip file ready to be downloaded.
 #' @export

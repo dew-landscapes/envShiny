@@ -1,8 +1,6 @@
 #' An input_task_button that disables once its task is complete
 #'
 #' This button type combines the 'processing' function of `bslib::input_task_button` with the 'disabled' functionality of `shiny::actionButton`.
-#'
-#' @details
 #' Use within a `renderUI` function in the server function, and not in the UI, as it will need reactives to track 'load' status.
 #'
 #' @param id inputID to track input/action (as any other shiny input).
@@ -10,16 +8,16 @@
 #' @param loaded Logical; how to track loaded status (usually a reactiveValues value).
 #' @param changed Optional logical; how to track if the button should be clickable again, when `loaded==TRUE`.
 #' @param label_busy Label to display when processing. Used directly in same argument of `input_task_button.`.
-#' @param label_done Label to display when process is finished. Displayed on a disable `actionButton`.
+#' @param label_done Label to display when process is finished. Displayed on a disabled `actionButton`.
 #' @param label_changed Label to display when `loaded==TRUE` but new action is available and button is clickable again.
 #' @param class Sent to `class` argument of all buttons (e.g. 'btn-sm')
-#' @param type Sent to `type` argument of input_task_buttons (default 'primary')
+#' @param type Sent to `type` argument of `input_task_buttons` (default 'primary')
 #' @param style_ready,style_done Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.
 #'
 #' @returns An `input_task_button`, or a disabled `actionButton` when action is complete.
 #'
 #' @details
-#' The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered selectInput load.
+#' The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered `selectInput` load.
 #'
 #' Tracking 'changed' is tricky, because updating the ui button triggers an eventReactive in the same way as if it was clicked, so an
 #' eventReactive around the data load won't work (it will load data before the load button is clicked). Instead,

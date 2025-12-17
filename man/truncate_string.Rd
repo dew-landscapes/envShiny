@@ -12,7 +12,7 @@ truncate_string(cols = "_all", length = 60)
 \item{length}{Number of characters to truncate to}
 }
 \value{
-A list, to be used within `columnDefs` list in datatable `options` (see example)
+A list, to be used within \code{columnDefs} list in datatable \code{options} (see example)
 }
 \description{
 Truncate long text strings in a DT::datatable output

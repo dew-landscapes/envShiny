@@ -1,16 +1,16 @@
 #' Create a standardised leaflet base map for two layers side-by-side
 #'
 #' Create a leaflet map upon which to add layers through `leaflet::add` functions or `leafletProxy`.
-#' Uses leaflet.extras2::sidebyside to add a vertical slider to view two layers side-by-side.
-#' Add additional layers to a single side by specifying `options = pathOptions(pane = 'left/right')`, or add layers above the slider by using the panes parameters with zIndex>1.
+#' Uses [leaflet.extras2::sidebyside] to add a vertical slider to view two layers side-by-side.
+#' Add additional layers to a single side by specifying `options = pathOptions(pane = 'left/right')`, or add layers above the slider by using the panes parameters with `zIndex` >1.
 #'
-#' Includes fewer options than `envShiny::build_basemap`, which is better for adding multiple layers.
+#' Includes fewer options than [build_basemap], which is better for adding multiple layers.
 #'
 #'
-#' @param panes Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah')
+#' @param panes Character vector of names to add as additional height-ordered layers. Call in added layers with `options=pathOptions(pane = 'blah')`
 #' @param panes_zIndex Numeric vector of panes levels. Must be equal length to `panes`.
 #' @param basemap Name of basemap layer to use. Note that `sidebyside` doesn't support layerControl for basemaps, so only one value is used. Supports default OpenStreetMap & ESRI World Imagery, and ImageMapSA via its public URL (which reverts to ESRI imagery outside its extent).
-#' @param ... Passed to initial leaflet(), eg. for setting height.
+#' @param ... Passed to initial `leaflet()`, eg. for setting height.
 #'
 #' @returns A leaflet map, as an HTML widget object.
 #'

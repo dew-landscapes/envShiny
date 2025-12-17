@@ -44,7 +44,7 @@ Default is 96 (pixels).}
 \item{arith}{an optional function to be applied to a multi-layer object.
 Will be computed on-the-fly in the browser.}
 
-\item{project}{**Change from leafem version:** default is FALSE and expects epsg:4326 rasters.}
+\item{project}{\strong{Change from leafem version:} default is FALSE and expects epsg:4326 rasters.}
 
 \item{method}{character defining the resampling method to be used when
 \code{project} is \code{TRUE}.

@@ -2,20 +2,20 @@
 % Please edit documentation in R/upload_shp.R
 \name{upload_shp}
 \alias{upload_shp}
-\title{Handle shapefiles in `shiny::fileInput`}
+\title{Handle shapefiles in \code{shiny::fileInput}}
 \usage{
 upload_shp(shp_path)
 }
 \arguments{
-\item{shp_path}{Result of `input${id}` from `fileInput('id')` - df with name, path etc}
+\item{shp_path}{Result of \code{input$id} from \code{fileInput('id')} - df with name, path etc}
 }
 \value{
-An sf object, read from the shiny temp directory created by `fileInput`
+An sf object, read from the shiny temp directory created by \code{fileInput}
 }
 \description{
-Shapefiles require at least .shp, .shx, and .dbf (plus ideally .prj) components, but `shiny::fileInput` doesn't handle this well for `sf` reading functions.
-This function prepares a set of uploaded shapefile components for reading by renaming them in the shiny temp directory before using sf::st_read on that directory.
+Shapefiles require at least .shp, .shx, and .dbf (plus ideally .prj) components, but \code{shiny::fileInput} doesn't handle this well for \code{sf} reading functions.
+This function prepares a set of uploaded shapefile components for reading by renaming them in the shiny temp directory before using \code{sf::st_read} on that directory.
 }
 \details{
-From https://stackoverflow.com/questions/67309399/allow-user-to-upload-a-shapefile-in-shiny
+From \href{https://stackoverflow.com/questions/67309399/allow-user-to-upload-a-shapefile-in-shiny}{this stackoverflow question}
 }

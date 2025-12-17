@@ -19,22 +19,22 @@ make_shp_download(
 should be same length as data list - one name for each shapefile.}
 
 \item{zip_name}{Name of the .zip folder downloaded. MUST match the name provided to the filename argument of
-shiny::download_handler.}
+\code{shiny::download_handler}.}
 
 \item{multiple}{Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.}
 
-\item{metadata}{Optionally, an object of class `WbWorkbook` from \code{openxlsx2} to include as metadata (.xlsx file) in the downloaded zip.}
+\item{metadata}{Optionally, an object of class \code{WbWorkbook} from \code{openxlsx2} to include as metadata (.xlsx file) in the downloaded zip.}
 }
 \value{
 A temp path to the .zip file ready to be downloaded.
 }
 \description{
 Create the components of one or more shapefiles, and zip them to a single file that is ready for
-\code{shiny::downloadHandler}. Assign to an object (e.g. `zipfile`) within the function in the \code{content}
-argument of downloadHandler, then use \code{file.copy(zipfile, file)} (see example).
+\code{\link[shiny:downloadHandler]{shiny::downloadHandler()}}. Assign to an object (e.g. \code{zipfile}) within the function in the \code{content}
+argument of \code{downloadHandler}, then use \code{file.copy(zipfile, file)} (see example).
 }
 \details{
-Replaces \code{envShiny::download_shp} (see [envShiny #2](https://github.com/dew-landscapes/envShiny/issues/2)).
+Replaces \link{download_shp} (see \href{https://github.com/dew-landscapes/envShiny/issues/2}{envShiny #2}).
 }
 \examples{
 \dontrun{

@@ -7,21 +7,21 @@
 plot_aoi(extent_sf, extent_poly = NULL, region_taxa_sf = NULL, zoom = FALSE)
 }
 \arguments{
-\item{extent_sf}{An `sf` object of the actual extent i.e. the AOI, e.g. from `tar_read(extent_sf)`.}
+\item{extent_sf}{An \code{sf} object of the actual extent i.e. the AOI, e.g. from \code{tar_read(extent_sf)}.}
 
-\item{extent_poly}{An `sf` object of the base vector used to build `extent_sf`, e.g. from H:/data/vector.}
+\item{extent_poly}{An \code{sf} object of the base vector used to build \code{extent_sf}, e.g. from H:/data/vector.}
 
-\item{region_taxa_sf}{An `sf` object to add to the map, e.g. from tar_read(region_taxa_sf)}
+\item{region_taxa_sf}{An \code{sf} object to add to the map, e.g. from tar_read(region_taxa_sf)}
 
-\item{zoom}{Logical. Set the map extent to `extent_sf`? Works well with a `bslib::input_switch` input.}
+\item{zoom}{Logical. Set the map extent to \code{extent_sf}? Works well with a \code{bslib::input_switch} input.}
 }
 \value{
-ggplot2 object with `extent_sf` overlayed on an SA/Aus map, with optional `extent_poly` and `region_taxa`.
+ggplot2 object with \code{extent_sf} overlayed on an SA/Aus map, with optional \code{extent_poly} and \code{region_taxa}.
 }
 \description{
 Create a simple ggplot of an AOI and, optionally, the 'base' vector used to create the aoi without buffers/filtering, and a region_taxa polygon.
-Map extent is set to the wider of SA or the AOI, or can be set manually to just the AOI with `zoom`.
+Map extent is set to the wider of SA or the AOI, or can be set manually to just the AOI with \code{zoom}.
 }
 \details{
-Requires `sa` and `aus` sf objects to build the map - usually as found in data/vector. They are NOT included in this package. Map crs is set to `crs(aus)`.
+Requires \code{sa} and \code{aus} sf objects to build the map - usually as found in data/vector. They are NOT included in this package. Map crs is set to \code{crs(aus)}.
 }

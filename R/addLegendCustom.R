@@ -2,9 +2,9 @@
 #'
 #' Default leaflet legends only exist as a colour-filled square, this function allows customisation of size, shape, fill, and outline.
 #' If style parameters are of unequal lengths they get recycled.
-#' From https://stackoverflow.com/questions/52812238/custom-legend-with-r-leaflet-circles-and-squares-in-same-plot-legends
+#' From [this stackoverflow question](https://stackoverflow.com/questions/52812238/custom-legend-with-r-leaflet-circles-and-squares-in-same-plot-legends)
 #'
-#' @param map Leaflet map object, optionally via leafletProxy (see 'proxy')
+#' @param map Leaflet map object
 #' @param colors Vector of colour names or hex codes. Fill colour(s)
 #' @param labels Character vector. Legend label(s)
 #' @param sizes Numeric vector of legend shape size. Default 14 most closely matches default 'unstyled' leaflet legend.

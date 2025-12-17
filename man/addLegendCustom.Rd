@@ -16,7 +16,7 @@ addLegendCustom(
 )
 }
 \arguments{
-\item{map}{Leaflet map object, optionally via leafletProxy (see 'proxy')}
+\item{map}{Leaflet map object}
 
 \item{colors}{Vector of colour names or hex codes. Fill colour(s)}
 
@@ -30,13 +30,13 @@ addLegendCustom(
 
 \item{opacity}{Numeric between 0-1, length 1. Opacity of legend shapes}
 
-\item{...}{Other arguments to `leaflet::addLegend` (e.g. title)}
+\item{...}{Other arguments to \code{leaflet::addLegend} (e.g. title)}
 }
 \value{
-Leaflet legend added to the `map` provided
+Leaflet legend added to the \code{map} provided
 }
 \description{
 Default leaflet legends only exist as a colour-filled square, this function allows customisation of size, shape, fill, and outline.
 If style parameters are of unequal lengths they get recycled.
-From https://stackoverflow.com/questions/52812238/custom-legend-with-r-leaflet-circles-and-squares-in-same-plot-legends
+From \href{https://stackoverflow.com/questions/52812238/custom-legend-with-r-leaflet-circles-and-squares-in-same-plot-legends}{this stackoverflow question}
 }

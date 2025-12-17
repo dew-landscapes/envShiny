@@ -10,7 +10,7 @@ update_sidebyside_basemap(
 )
 }
 \arguments{
-\item{map}{An existing leaflet map object, usually piped from `leafletProxy()`}
+\item{map}{An existing leaflet map object, usually piped from \code{leafletProxy()}}
 
 \item{basemap}{The basemap layer which the map should be updated to use}
 }
@@ -18,9 +18,9 @@ update_sidebyside_basemap(
 A leaflet map, as an HTML widget object.
 }
 \description{
-Used after creating a map using envShiny::build_basemap_sidebyside. Needed because leafem::addsidebyside doesn't support the use of in-map base layers controls.
+Used after creating a map using \link{build_basemap_sidebyside}. Needed because \link[leafem:addsidebyside]{leafem::addsidebyside} doesn't support the use of in-map base layers controls.
 }
 \details{
 If another layer (e.g. a tif) is being drawn on top of the basemaps, and is 'swipeable', use
-map |> hideGroup("tif") |> showGroup("tif") to ensure it stays on top of the basemaps.
+\code{map |> hideGroup("tif") |> showGroup("tif")} to ensure it stays on top of the basemaps.
 }

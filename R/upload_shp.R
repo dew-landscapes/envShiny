@@ -1,11 +1,11 @@
 #' Handle shapefiles in `shiny::fileInput`
 #'
 #' Shapefiles require at least .shp, .shx, and .dbf (plus ideally .prj) components, but `shiny::fileInput` doesn't handle this well for `sf` reading functions.
-#' This function prepares a set of uploaded shapefile components for reading by renaming them in the shiny temp directory before using sf::st_read on that directory.
+#' This function prepares a set of uploaded shapefile components for reading by renaming them in the shiny temp directory before using `sf::st_read` on that directory.
 #'
-#' From https://stackoverflow.com/questions/67309399/allow-user-to-upload-a-shapefile-in-shiny
+#' From [this stackoverflow question](https://stackoverflow.com/questions/67309399/allow-user-to-upload-a-shapefile-in-shiny)
 #'
-#' @param shp_path Result of `input${id}` from `fileInput('id')` - df with name, path etc
+#' @param shp_path Result of `input$id` from `fileInput('id')` - df with name, path etc
 #'
 #' @returns An sf object, read from the shiny temp directory created by `fileInput`
 #'

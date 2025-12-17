@@ -2,13 +2,13 @@
 #'
 #' Due to bugs in reactive tracking, superceded by \code{envShiny::make_shp_download.R}
 #'
-#' Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of shiny::downloadHandler
-#' From <https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny>
+#' Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of [shiny::downloadHandler()]
+#' From [this stackoverflow question](https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny)
 #'
-#' @param data Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.
-#' @param layer_names Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If multiple = TRUE, should be same length as data list.
+#' @param data Data to be downloaded, usually a reactive. If `multiple = TRUE`, must be a list.
+#' @param layer_names Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If `multiple = TRUE`, should be same length as data list.
 #' @param zip_name Name of the .zip folder downloaded.
-#' @param multiple Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.
+#' @param multiple Download contains multiple shapefiles? Check requirements for `data` and `layer_names` if TRUE.
 #'
 #' @return A .zip file download from the shiny server, containing one or more shapefiles.
 #'

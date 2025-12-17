@@ -12,22 +12,22 @@ build_basemap_sidebyside(
 )
 }
 \arguments{
-\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah')}
+\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with \code{options=pathOptions(pane = 'blah')}}
 
-\item{panes_zIndex}{Numeric vector of panes levels. Must be equal length to `panes`.}
+\item{panes_zIndex}{Numeric vector of panes levels. Must be equal length to \code{panes}.}
 
-\item{basemap}{Name of basemap layer to use. Note that `sidebyside` doesn't support layerControl for basemaps, so only one value is used. Supports default OpenStreetMap & ESRI World Imagery, and ImageMapSA via its public URL (which reverts to ESRI imagery outside its extent).}
+\item{basemap}{Name of basemap layer to use. Note that \code{sidebyside} doesn't support layerControl for basemaps, so only one value is used. Supports default OpenStreetMap & ESRI World Imagery, and ImageMapSA via its public URL (which reverts to ESRI imagery outside its extent).}
 
-\item{...}{Passed to initial leaflet(), eg. for setting height.}
+\item{...}{Passed to initial \code{leaflet()}, eg. for setting height.}
 }
 \value{
 A leaflet map, as an HTML widget object.
 }
 \description{
-Create a leaflet map upon which to add layers through `leaflet::add` functions or `leafletProxy`.
-Uses leaflet.extras2::sidebyside to add a vertical slider to view two layers side-by-side.
-Add additional layers to a single side by specifying `options = pathOptions(pane = 'left/right')`, or add layers above the slider by using the panes parameters with zIndex>1.
+Create a leaflet map upon which to add layers through \code{leaflet::add} functions or \code{leafletProxy}.
+Uses \link[leaflet.extras2:sidebyside]{leaflet.extras2::sidebyside} to add a vertical slider to view two layers side-by-side.
+Add additional layers to a single side by specifying \code{options = pathOptions(pane = 'left/right')}, or add layers above the slider by using the panes parameters with \code{zIndex} >1.
 }
 \details{
-Includes fewer options than `envShiny::build_basemap`, which is better for adding multiple layers.
+Includes fewer options than \link{build_basemap}, which is better for adding multiple layers.
 }

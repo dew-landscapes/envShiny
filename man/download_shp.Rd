@@ -12,13 +12,13 @@ download_shp(
 )
 }
 \arguments{
-\item{data}{Data to be downloaded, usually a reactive. If multiple = TRUE, must be a list.}
+\item{data}{Data to be downloaded, usually a reactive. If \code{multiple = TRUE}, must be a list.}
 
-\item{layer_names}{Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If multiple = TRUE, should be same length as data list.}
+\item{layer_names}{Name of the shapefile/s, ie will output layer_name.shp, layer_name.dbf, etc. If \code{multiple = TRUE}, should be same length as data list.}
 
 \item{zip_name}{Name of the .zip folder downloaded.}
 
-\item{multiple}{Download contains multiple shapefiles? Check requirements for data and layer_names if TRUE.}
+\item{multiple}{Download contains multiple shapefiles? Check requirements for \code{data} and \code{layer_names} if TRUE.}
 }
 \value{
 A .zip file download from the shiny server, containing one or more shapefiles.
@@ -27,6 +27,6 @@ A .zip file download from the shiny server, containing one or more shapefiles.
 Due to bugs in reactive tracking, superceded by \code{envShiny::make_shp_download.R}
 }
 \details{
-Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of shiny::downloadHandler
-From <https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny>
+Create and zip the components of an ESRI shapefile (i.e. .shp, .dbf, etc) into a single download. Use instead of \code{\link[shiny:downloadHandler]{shiny::downloadHandler()}}
+From \href{https://stackoverflow.com/questions/41707760/download-a-shape-file-from-shiny}{this stackoverflow question}
 }

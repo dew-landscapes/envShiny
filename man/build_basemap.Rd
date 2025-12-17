@@ -12,18 +12,18 @@ build_basemap(
 )
 }
 \arguments{
-\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with options=pathOptions(pane = 'blah'). Basemaps are automatically included at zIndex=1.}
+\item{panes}{Character vector of names to add as additional height-ordered layers. Call in added layers with \code{options=pathOptions(pane = 'blah')}. Basemaps are automatically included at \code{zIndex=1}.}
 
-\item{panes_zIndex}{Numeric vector of panes levels. Must be equal length to `panes`.}
+\item{panes_zIndex}{Numeric vector of panes levels. Must be equal length to \code{panes}.}
 
 \item{use_basemaps}{Names of leaflet basemaps. Defaults are OpenStreetMap & ESRI World Imagery (built in to leaflet), and ImageMapSA via its public URL (which reverts to ESRI imagery outside its extent).}
 
-\item{...}{Passed to initial leaflet(), eg. for setting height.}
+\item{...}{Passed to initial \code{leaflet()}, eg. for setting height.}
 }
 \value{
 A leaflet map, as an HTML widget object.
 }
 \description{
-Create a leaflet map upon which to add layers through `leaflet::add` functions or `leafletProxy`.
+Create a leaflet map upon which to add layers through \code{leaflet::add} functions or \code{leafletProxy}.
 Includes controls for panes zIndex (i.e. layer heights), basemaps, and sets controls positions.
 }

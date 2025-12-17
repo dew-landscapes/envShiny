@@ -25,34 +25,33 @@ taskbutton_dynamic(
 
 \item{loaded}{Logical; how to track loaded status (usually a reactiveValues value).}
 
-\item{changed}{Optional logical; how to track if the button should be clickable again, when `loaded==TRUE`.}
+\item{changed}{Optional logical; how to track if the button should be clickable again, when \code{loaded==TRUE}.}
 
-\item{label_busy}{Label to display when processing. Used directly in same argument of `input_task_button.`.}
+\item{label_busy}{Label to display when processing. Used directly in same argument of \code{input_task_button.}.}
 
-\item{label_done}{Label to display when process is finished. Displayed on a disable `actionButton`.}
+\item{label_done}{Label to display when process is finished. Displayed on a disabled \code{actionButton}.}
 
-\item{label_changed}{Label to display when `loaded==TRUE` but new action is available and button is clickable again.}
+\item{label_changed}{Label to display when \code{loaded==TRUE} but new action is available and button is clickable again.}
 
-\item{class}{Sent to `class` argument of all buttons (e.g. 'btn-sm')}
+\item{class}{Sent to \code{class} argument of all buttons (e.g. 'btn-sm')}
 
-\item{type}{Sent to `type` argument of input_task_buttons (default 'primary')}
+\item{type}{Sent to \code{type} argument of \code{input_task_buttons} (default 'primary')}
 
 \item{style_ready, style_done}{Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.}
 }
 \value{
-An `input_task_button`, or a disabled `actionButton` when action is complete.
+An \code{input_task_button}, or a disabled \code{actionButton} when action is complete.
 }
 \description{
-This button type combines the 'processing' function of `bslib::input_task_button` with the 'disabled' functionality of `shiny::actionButton`.
+This button type combines the 'processing' function of \code{bslib::input_task_button} with the 'disabled' functionality of \code{shiny::actionButton}.
+Use within a \code{renderUI} function in the server function, and not in the UI, as it will need reactives to track 'load' status.
 }
 \details{
-Use within a `renderUI` function in the server function, and not in the UI, as it will need reactives to track 'load' status.
-
-The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered selectInput load.
+The code in Examples below is necessary to track the various changes to load/ready status based on a button-triggered \code{selectInput} load.
 
 Tracking 'changed' is tricky, because updating the ui button triggers an eventReactive in the same way as if it was clicked, so an
 eventReactive around the data load won't work (it will load data before the load button is clicked). Instead,
-use `bindCache(loaded$selection)` on the data (e.g. a tars() reactive), where `loaded$selection` stores the currently-loaded data name
+use \code{bindCache(loaded$selection)} on the data (e.g. a tars() reactive), where \code{loaded$selection} stores the currently-loaded data name
 (see Examples).
 }
 \examples{

@@ -10,11 +10,11 @@ get_tar_meta(store)
 \item{store}{Path to the store to check (usually tars$blah$store, or the reactive equivalent)}
 }
 \value{
-A data frame with names of targets. Excludes targets with `_branches_` in the name.
+A data frame with names of targets. Excludes targets with \verb{_branches_} in the name.
 }
 \description{
 Build a table of targets metadata and progress
 }
 \seealso{
-[`envShiny::tar_meta_opts`] in the options argument of `DT::datatable()` is useful for easy consistent output formatting.
+\code{\link{tar_meta_opts}} in the options argument of \code{DT::datatable()} is useful for easy consistent output formatting.
 }
