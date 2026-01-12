@@ -2,6 +2,7 @@
 
 export(addLegendCustom)
 export(add_geotiff)
+export(add_tif)
 export(build_basemap)
 export(build_basemap_sidebyside)
 export(download_shp)
