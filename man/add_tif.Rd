@@ -28,7 +28,7 @@ some test (\code{use_reproject}) of if a reprojected COG exists.
  add_tif(use_reproject = loaded$predmaps == "fine" && input$select_tif_type == "reproject" && sel_taxa_files()$predict_reproj_exists,
          reproj_file = sel_taxa_files()$predict_reproj_file,
          original_file = sel_taxa_files()$predict_fine_file,
-         group = "Prediction")
+         prefix = paste0(input$select_grain, loaded_taxa$selection))
 }
 
 
