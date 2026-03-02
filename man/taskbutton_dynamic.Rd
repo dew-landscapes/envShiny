@@ -15,7 +15,8 @@ taskbutton_dynamic(
   class = NULL,
   type = "primary",
   style_ready = NULL,
-  style_done = style_ready
+  style_done = style_ready,
+  style_changed = style_done
 )
 }
 \arguments{
@@ -37,7 +38,7 @@ taskbutton_dynamic(
 
 \item{type}{Sent to \code{type} argument of \code{input_task_buttons} (default 'primary')}
 
-\item{style_ready, style_done}{Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.}
+\item{style_ready, style_done, style_changed}{Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.}
 }
 \value{
 An \code{input_task_button}, or a disabled \code{actionButton} when action is complete.

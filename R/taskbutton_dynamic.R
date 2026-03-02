@@ -12,7 +12,7 @@
 #' @param label_changed Label to display when `loaded==TRUE` but new action is available and button is clickable again.
 #' @param class Sent to `class` argument of all buttons (e.g. 'btn-sm')
 #' @param type Sent to `type` argument of `input_task_buttons` (default 'primary')
-#' @param style_ready,style_done Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.
+#' @param style_ready,style_done,style_changed Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.
 #'
 #' @returns An `input_task_button`, or a disabled `actionButton` when action is complete.
 #'
@@ -88,7 +88,8 @@ taskbutton_dynamic <- function(id,
                                class = NULL,
                                type = 'primary',
                                style_ready = NULL,
-                               style_done = style_ready
+                               style_done = style_ready,
+                               style_changed = style_done
 ) {
 
   ui <- input_task_button(id = id,
@@ -113,7 +114,8 @@ taskbutton_dynamic <- function(id,
                             label = label_changed,
                             label_busy = label_busy,
                             type = type,
-                            class = class)
+                            class = class,
+                            style = style_changed)
   }
 
   ui

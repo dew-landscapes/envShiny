@@ -63,7 +63,8 @@ Use within a <code>renderUI</code> function in the server function, and not in t
 <span>  class <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"primary"</span>,</span>
 <span>  style_ready <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  style_done <span class="op">=</span> <span class="va">style_ready</span></span>
+<span>  style_done <span class="op">=</span> <span class="va">style_ready</span>,</span>
+<span>  style_changed <span class="op">=</span> <span class="va">style_done</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -107,7 +108,7 @@ Use within a <code>renderUI</code> function in the server function, and not in t
 <dd><p>Sent to <code>type</code> argument of <code>input_task_buttons</code> (default 'primary')</p></dd>
 
 
-<dt id="arg-style-ready-style-done">style_ready, style_done<a class="anchor" aria-label="anchor" href="#arg-style-ready-style-done"></a></dt>
+<dt id="arg-style-ready-style-done-style-changed">style_ready, style_done, style_changed<a class="anchor" aria-label="anchor" href="#arg-style-ready-style-done-style-changed"></a></dt>
 <dd><p>Style options for button states (e.g. "background-color:red;"). Works with class, probably overrides type.</p></dd>
 
 </dl></div>
