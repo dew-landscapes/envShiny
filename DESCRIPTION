@@ -31,7 +31,7 @@ Imports:
     shiny,
     bslib,
     bsicons,
-    purrr
+    lifecycle,
 URL: https://github.com/dew-landscapes/envShiny
 BugReports: https://github.com/dew-landscapes/envShiny/issues
 Depends: 

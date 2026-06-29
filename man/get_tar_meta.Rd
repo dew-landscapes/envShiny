@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_tar_meta.R
 \name{get_tar_meta}
 \alias{get_tar_meta}
-\title{Build a table of targets metadata and progress}
+\title{Depreciated to \code{envTargets}: Build a table of targets metadata and progress}
 \usage{
 get_tar_meta(store)
 }
@@ -13,7 +13,7 @@ get_tar_meta(store)
 A data frame with names of targets. Excludes targets with \verb{_branches_} in the name.
 }
 \description{
-Build a table of targets metadata and progress
+Depreciated to \code{envTargets}: Build a table of targets metadata and progress
 }
 \seealso{
 \code{\link{tar_meta_opts}} in the options argument of \code{DT::datatable()} is useful for easy consistent output formatting.

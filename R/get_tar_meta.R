@@ -1,4 +1,4 @@
-#' Build a table of targets metadata and progress
+#' Depreciated to `envTargets`: Build a table of targets metadata and progress
 #'
 #' @param store Path to the store to check (usually tars$blah$store, or the reactive equivalent)
 #'
@@ -9,22 +9,14 @@
 #'
 #' @export
 
-get_tar_meta <- function(store){
+get_tar_meta <- function(store) {
 
-  prog <- targets::tar_progress(names = !contains("_branches_"),
-                       store = store)
-  meta <- targets::tar_meta(names = !contains("_branches_"),
-                        store = store,
-                        targets_only = TRUE) |>
-    dplyr::arrange(time)
+  lifecycle::deprecate_warn(
+    "29 June 2026",
+    what = "envShiny::get_tar_meta()",
+    with = "envTargets::get_tar_meta()"
+  )
 
-  res <- meta |>
-    dplyr::left_join(prog) |>
-    dplyr::mutate(date = format(time, "%d-%b-%Y"), time = format(time, "%H:%M"),
-                  seconds = round(seconds, 2),
-                  size = paste0(fs::fs_bytes(bytes), "B")) |>
-    dplyr::mutate(size = gsub("(?<=\\d)(?=[A-Za-z])", " ", size, perl = TRUE)) |>
-    dplyr::select(name, progress, date, time, seconds, size, format, warnings)
+  envTargets::get_tar_meta(store)
 
-  res
 }
