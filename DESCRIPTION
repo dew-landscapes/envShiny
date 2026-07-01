@@ -32,6 +32,7 @@ Imports:
     bslib,
     bsicons,
     lifecycle,
+    htmltools
 URL: https://github.com/dew-landscapes/envShiny
 BugReports: https://github.com/dew-landscapes/envShiny/issues
 Depends: 
