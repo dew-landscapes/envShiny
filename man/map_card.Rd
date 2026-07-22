@@ -16,3 +16,6 @@ map_card(map_id, basemap_id, opacity_id, header = NULL)
 \description{
 Card body is filled with a map (with no padding). Card footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet basemap controls) and raster opacity.
 }
+\details{
+Requires \code{\link{use_styles}} to be called in ui to style raster opacity slider.
+}
