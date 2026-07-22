@@ -1,0 +1,20 @@
+/* Inline label for sliderInput - wrap sliderInput in div with class = inline-slider */
+/* https://stackoverflow.com/questions/72040479/how-to-position-label-beside-slider-in-r-shiny */
+.inline-slider .form-group {
+  display: flex;              /* Use flexbox for positioning children */
+  flex-direction: row;        /* Place children on a row (default) */
+  width: 100%;                /* Set width for container */
+  /* max-width: 400px; */
+}
+
+.inline-slider label {
+  margin-right: 2rem;         /* Add spacing between label and slider */
+  align-self: center;         /* Vertical align in center of row */
+  text-align: right;
+  flex-basis: 25%;          /* Target width for label */
+  font-weight: 600;
+}
+
+.inline-slider .irs {
+  flex-basis: 75%;          /* Target width for slider */
+}

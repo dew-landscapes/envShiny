@@ -29,7 +29,7 @@ Imports:
     leaflet,
     leafem,
     shiny,
-    bslib,
+    bslib (>= 0.11),
     bsicons,
     lifecycle,
     htmltools
