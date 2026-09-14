@@ -2,19 +2,28 @@
 % Please edit documentation in R/map_card.R
 \name{map_card}
 \alias{map_card}
-\title{Standardised card for holding (usually 'side-by-side') leaflet maps}
+\title{Standardised card for holding leaflet maps}
 \usage{
-map_card(map_id, basemap_id, opacity_id, header = NULL)
+map_card(
+  map_id,
+  basemap_id,
+  opacity_id,
+  header = NULL,
+  leaflet_height = 400,
+  full_screen = FALSE
+)
 }
 \arguments{
 \item{map_id}{Output ID of the leaflet map.}
 
-\item{basemap_id, opacity_id}{Input ID of basemap controls and raster opacity}
+\item{basemap_id, opacity_id}{Input ID of basemap controls and raster opacity. Raster opacity is optional - set to NULL to remove.}
 
 \item{header}{Optional header content. Use \code{bslib::card_header(..)} to add.}
 }
 \description{
-Card body is filled with a map (with no padding). Card footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet basemap controls) and raster opacity.
+Card body is filled with a map with no padding. Designed mainly for 'side-by-side' maps.
+Card footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet basemap controls)
+and, optionally, raster opacity.
 }
 \details{
 Requires \code{\link{use_styles}} to be called in ui to style raster opacity slider.
