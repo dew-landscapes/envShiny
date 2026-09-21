@@ -35,7 +35,7 @@ map_card <- function(map_id,
       bslib::card_footer(
         bslib::toolbar(
           align = "left",
-          bslib::layout_columns(col_widths = c(4,-2,6),
+          bslib::layout_columns(col_widths = c(4, if(!is.null(opacity_id)) c(-2,6) else -8),
                                 style = "width:100%;",
                                 bslib::toolbar_input_select(basemap_id,
                                                             "Basemap", show_label = TRUE,
