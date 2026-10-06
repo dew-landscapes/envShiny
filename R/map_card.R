@@ -22,6 +22,12 @@ map_card <- function(map_id,
                      leaflet_height = 400,
                      full_screen = FALSE) {
 
+  lifecycle::deprecate_warn(
+    "6 October 2026",
+    what = "envShiny::map_card()",
+    with = I("`envShiny::map_cardUI()` with `envShiny::map_cardServer()`")
+  )
+
     bslib::card(
       full_screen = full_screen,
       header,

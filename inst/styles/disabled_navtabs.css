@@ -1,0 +1,4 @@
+/* adds 'not allowed' icon to cursor on tabs disabled by toggle_tab */
+.navbar li:has(> .disabled) {
+  cursor: not-allowed
+}
