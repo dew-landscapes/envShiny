@@ -104,10 +104,15 @@ function.</p>
     <p>Card body is filled with a map with no padding. Designed mainly for 'side-by-side' maps. Card
 footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet
 basemap controls) and, optionally, raster opacity.</p>
-<p><code>map_cardServer</code> creates <code>output$map</code>, namespaced by the id. To update the map via
-<code>leafletProxy</code>, use the <code>session</code> argument, i.e. <code>leafletProxy("map", session = ..)</code>.</p>
+<p><code>map_cardServer</code> creates <code>output$map</code>, namespaced by the id. To control the map in the server,
+assign the map_cardServer to an object and refer to it in the <code>session</code> argument in
+<code>leafletProxy</code>  (see example).</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

@@ -8,8 +8,9 @@
 #' footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet
 #' basemap controls) and, optionally, raster opacity.
 #'
-#' `map_cardServer` creates `output$map`, namespaced by the id. To update the map via
-#' `leafletProxy`, use the `session` argument, i.e. `leafletProxy("map", session = ..)`.
+#' `map_cardServer` creates `output$map`, namespaced by the id. To control the map in the server,
+#' assign the map_cardServer to an object and refer to it in the `session` argument in
+#' `leafletProxy`  (see example).
 #'
 #' @param id Module namespace ID. Must match id used in `map_cardServer`.
 #' @param header Optional header content. Use `bslib::card_header(..)` to add.
@@ -21,6 +22,37 @@
 #' @returns For `map_cardUI`: A `bslib::card` UI object
 #'
 #' @rdname map_card_module
+#'
+#' @examples
+#'\dontrun{
+#' ui <- fluidPage(
+#'   map_cardUI(id = "overview",
+#'              header = bslib::card_header("Overview"))
+#' )
+#'
+#'
+#' server <- function(input, output, session) {
+#'
+#'   # Build the base leaflet map
+#'   overview_leaflet <- reactive({
+#'     envShiny::build_basemap()
+#'   })
+#'
+#'   # Create the server map
+#'   overview_map <- map_cardServer(id = "overview", # match id used in UI
+#'                                  map = overview_leaflet # note, not called as reactive function here
+#'                                  )
+#'
+#'   # Update the server map
+#'   observe({
+#'     leafletProxy(mapId = "map", # must use "map" here, to match what map_cardServer uses internally
+#'                  session = overview_map$session) |>
+#'       ... # functions to control the map, eg add layers
+#'   })
+#'
+#' }
+#'
+#'}
 #'
 #' @export
 

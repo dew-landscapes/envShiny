@@ -44,6 +44,39 @@ Card body is filled with a map with no padding. Designed mainly for 'side-by-sid
 footer contains controls for basemap (as side-by-side maps can't handle it with native leaflet
 basemap controls) and, optionally, raster opacity.
 
-\code{map_cardServer} creates \code{output$map}, namespaced by the id. To update the map via
-\code{leafletProxy}, use the \code{session} argument, i.e. \code{leafletProxy("map", session = ..)}.
+\code{map_cardServer} creates \code{output$map}, namespaced by the id. To control the map in the server,
+assign the map_cardServer to an object and refer to it in the \code{session} argument in
+\code{leafletProxy}  (see example).
+}
+\examples{
+\dontrun{
+ui <- fluidPage(
+  map_cardUI(id = "overview",
+             header = bslib::card_header("Overview"))
+)
+
+
+server <- function(input, output, session) {
+
+  # Build the base leaflet map
+  overview_leaflet <- reactive({
+    envShiny::build_basemap()
+  })
+
+  # Create the server map
+  overview_map <- map_cardServer(id = "overview", # match id used in UI
+                                 map = overview_leaflet # note, not called as reactive function here
+                                 )
+
+  # Update the server map
+  observe({
+    leafletProxy(mapId = "map", # must use "map" here, to match what map_cardServer uses internally
+                 session = overview_map$session) |>
+      ... # functions to control the map, eg add layers
+  })
+
+}
+
+}
+
 }
