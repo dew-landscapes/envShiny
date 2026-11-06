@@ -3,12 +3,14 @@
 #' Knit .md files from .rmd files for display in shiny via includeMarkdown().
 #'
 #' @param help_dir Folder containing .rmd files.
+#' @param force Logical, rewrite all files even if they exist and are unchanged?
 #'
 #' @return .md files, saved into help_dir
 #' @export
 #'
 
-knit_help <- function(help_dir = here::here("shiny", "help")) {
+knit_help <- function(help_dir = here::here("shiny", "help"),
+                      force = FALSE) {
 
   help_files <- gsub("*.Rmd$", "", list.files(help_dir, pattern = "*.Rmd$", recursive = T))
 
@@ -16,8 +18,9 @@ knit_help <- function(help_dir = here::here("shiny", "help")) {
               \(x) {
                 infile <- fs::path(help_dir, paste0(x, ".Rmd"))
                 outfile <- fs::path(help_dir, paste0(x, ".md"))
+
                 ##knit only when changes made (though anything with evaluated R code will also update)
-                if(!file.exists(outfile) || !all(readr::read_lines(infile) == readr::read_lines(outfile))) {
+                if(force || !file.exists(outfile) || !all(readr::read_lines(infile) == readr::read_lines(outfile))) {
                   knitr::knit(infile,
                               output = outfile
                   )

@@ -4,10 +4,12 @@
 \alias{knit_help}
 \title{Knit help files}
 \usage{
-knit_help(help_dir = here::here("shiny", "help"))
+knit_help(help_dir = here::here("shiny", "help"), force = FALSE)
 }
 \arguments{
 \item{help_dir}{Folder containing .rmd files.}
+
+\item{force}{Logical, rewrite all files even if they exist and are unchanged?}
 }
 \value{
 .md files, saved into help_dir
